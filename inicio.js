@@ -60,6 +60,8 @@ function validarLogin (clave) {
     botonCerrarSesion.style.display = "none"
     botonPerfil.style.display = "none"
     botonInicioSesion.style.display = "flex"
+    containerLogin.style.display = "block"
+
  }
 
 
