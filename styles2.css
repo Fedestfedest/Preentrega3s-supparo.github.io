@@ -1,0 +1,22 @@
+@media screen and (min-width: 600px) {
+  
+    #headerContenido {
+        display: flex;
+        justify-content: space-between;
+    }
+  
+    #headerContenidoLista nav ul {
+        display: flex;
+    }
+  
+    .footerFlex {
+        display: flex;
+        justify-content: center;
+    }
+    .footerLogo {
+        padding-right: 30px;
+    }
+    .footerContacto {
+        padding-left: 30px;
+    }
+}

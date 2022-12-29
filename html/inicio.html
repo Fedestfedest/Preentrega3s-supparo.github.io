@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../styles2.css">
+</head>
+<body>
+    
+
+
+    <header id="header">
+        <div id="headerContenido">
+            <div id="headerContenidoLogo">
+               <a href="../index.html"><img src="../img/logoEComerce.png" alt="logoEComerce"></a>
+
+            </div>
+
+            <div id="headerContenidoLista">
+                <nav>
+                    <ul id="headerContenidoListaItems">
+                        <li><a href="../html/productos.html">Productos</a></li>
+                        <li><a href="../html/carrito.html">Carrito</a></li>
+                        <li id="botonInicioSesion"><a href="../html/inicio.html">Iniciar Sesión</a></li>
+                        <li ><a href=""><button id="botonPerfil">Perfil</button></a></li>
+                        <li id="botonCerrarSesion">Cerrar sesión</li>
+                    </ul>
+                </nav> 
+
+            </div>
+
+        </div>
+
+
+
+    </header>
+
+    
+<main>
+
+        <div class="containerLogin">
+            <h2>
+                Inicie sesión
+            </h2>
+            <form id="login">
+                <label>
+                    <input type="text" placeholder="Usuario" id="inputUser">
+                </label>
+                <label>
+                    <input type="text" placeholder="Contraseña" id="inputPass">
+                </label>
+                <label>
+                    <input type="submit" value="Ingresar">
+                </label>
+                <div class="loginIncorrecto">
+                    <p>Usuario y/o contraseña incorrectos</p>
+                </div>
+            </form>
+        </div>
+       
+
+        <div id="listaProductos">
+
+            
+        </div>
+
+</main>
+
+
+<footer id="footer">
+
+    <section class="footerFlex">
+        <div class="footerLogo">
+            <img src="../img/logoEComerce.png" alt="">
+        </div>
+        <div class="footerContacto">
+            <h2>Contacto</h2>
+        
+        
+            <p>Avenida Gorlero 1234
+                <br>
+            +59899123456
+            <br>
+            Punta del Este - Uruguay
+            <br>
+            shoppingcart123@gmail.com</p>
+        </div>
+
+    </section>
+
+
+</footer>
+
+    
+    <script src="../inicio.js"></script>
+</body>
+</html>
