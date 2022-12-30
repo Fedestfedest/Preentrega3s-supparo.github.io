@@ -14,7 +14,8 @@ const loginTrue = JSON.parse(localStorage.getItem("login"))
 const formLogin = document.querySelector("#login")
 const inputUser = document.querySelector("#inputUser")
 const inputPass = document.querySelector("#inputPass")
-
+const botonModos = document.querySelector("#claro-oscuro")
+const body = document.querySelector(".modo-claro")
 
 
 const subirAlLs = (clave, valor ) => {
@@ -63,6 +64,11 @@ function validarLogin (clave) {
     containerLogin.style.display = "block"
 
  }
+
+ botonModos.onclick = () => {
+    body.classList.toggle("modo-oscuro")
+ }
+
 
 
 

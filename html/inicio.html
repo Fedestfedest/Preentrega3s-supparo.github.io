@@ -8,14 +8,14 @@
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="../styles2.css">
 </head>
-<body>
+<body class=".modo-claro">
     
 
 
     <header id="header">
         <div id="headerContenido">
             <div id="headerContenidoLogo">
-               <a href="../index.html"><img src="../img/logoEComerce.png" alt="logoEComerce"></a>
+               <a href="../index.html"><img src="../img/logoEComerce-removebg-preview.png" alt="logoEComerce"></a>
 
             </div>
 
@@ -39,8 +39,8 @@
     </header>
 
     
-<main>
-
+<main id="mainInicio">
+    <div id="contenedorGeneral">
         <div class="containerLogin">
             <h2>
                 Inicie sesión
@@ -52,9 +52,13 @@
                 <label>
                     <input type="text" placeholder="Contraseña" id="inputPass">
                 </label>
+                <div id="olvidadoContraseña">¿Has olvidado tu contraseña?
+
+                </div>
                 <label>
-                    <input type="submit" value="Ingresar">
+                    <input id="enviarFormulario" type="submit" value="Ingresar">
                 </label>
+            
                 <div class="loginIncorrecto">
                     <p>Usuario y/o contraseña incorrectos</p>
                 </div>
@@ -66,7 +70,7 @@
 
             
         </div>
-
+    </div>
 </main>
 
 
@@ -90,6 +94,10 @@
         </div>
 
     </section>
+
+    <section id="footerFinal">
+        <button id="claro-oscuro"><img src="../img/dark-mode-removebg-preview.png" alt=""></button>
+      </section>
 
 
 </footer>

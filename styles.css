@@ -9,8 +9,16 @@ body {
     width: 100%;
 }
 
+.modo-claro {
+    background-color: rgb(240, 238, 238);
+}
+
+.modo-oscuro {
+    background-color: black;
+}
+
 #headerContenido {
-    background-color: rgba(55,55,55,255);
+    background-color: black;
     text-align: center;
 }
 
@@ -23,7 +31,7 @@ body {
 
 #headerContenidoLista{
     width: 100%;
-    padding-top: 20px;
+    padding-top: 23px;
 }
     
 #headerContenidoLista nav ul {
@@ -50,16 +58,40 @@ body {
         overflow: visible;
 }
 
+
 #botonCerrarSesion {
     display: none;
+    background: none;
+    border: 0;
+    color: inherit;
+    font: inherit;
+    line-height: normal;
+    overflow: visible;
     color: white;
     font-size: 20px;
 }
 
 .lineaGris {
    height: 10px;
-background-color: rgb(133, 132, 132);
+background-color: white;
 }
+
+.comentarioLayOut {
+    color: white !important;
+    background-color: black !important;
+    width: 15%;
+    margin-left: 27%;
+    margin-bottom: 3%;
+    border-radius: 7px;
+    height: 6%;
+    padding-bottom: 3%!important;
+  
+}
+
+.comentarioLayOut h5 {
+    padding-bottom: 5px;
+}
+
 
 .carousel-inner img {
     width: 100%;
@@ -81,7 +113,7 @@ footer {
     color: white;
     font-size: 20px;
     text-align: center;
-    padding-bottom: 5%;
+    padding-top: 10%;
 
   }
   
@@ -91,28 +123,108 @@ footer {
   }
 
 
+  #footerFinal {
+    display: flex;
+    justify-content: right;
+    padding-right: 3%;
+    padding-bottom: 5%;
+   
+  
+  }
+
+#footerFinal button { 
+    background: none;;
+    border: 0;
+    color: inherit;
+    font: inherit;
+    line-height: normal;
+    overflow: visible;
+}
+
+#footerFinal button img {
+    height: 50px;
+    
+}
 
   /* Inicio de sesión */
 
 
-  .containerLogin {
-    margin: 20px;
-    padding: 10px;
-    border: 1px solid grey;
-    width: 20%;
+#mainInicio {
+    background-image: url(./img/ecommerce-g549056588_1920.jpg);
+    background-repeat: no-repeat;
+    padding: auto;
+    height: 250px;
+    background-size: cover;
+    height: 600px;
+}
+    
+#contenedorGeneral {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    padding-top: 100px;
+    text-align: center;
+    
+}
+
+.containerLogin {
+    padding: 10px;
+    border: 1px solid rgb(71, 65, 65);
+    width: 500px;
+    height: 300px;
     align-items: center;
     border-radius: 7px;
+    text-align: center;
+    background-color:  rgba(57, 60, 57, 0.896);
+
 }
+
+.containerLogin  h2 {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+
+
+#enviarFormulario {
+    display: block;
+   margin-left: 43%;
+   margin-top: 5%;
+    margin-bottom: 5px;
+    
+}
+
 
 .containerLogin h2 {
     padding-bottom: 20px;
+    
+}
+
+.containerLogin input {
+    height: 30px;
+    border-radius: 5px;
+    padding-left: 2%;
+}
+
+
+#olvidadoContraseña {
+    display: flex;
+    justify-content: left;
+    padding-top: 2%;
+    margin-left: 17%;
+    font-size: 15px;
+}
+
+#enviarFormulario {
+    padding-left: 1%;
+    padding-right: 1%;
 }
 
 .loginIncorrecto {
-    padding-left: 20px;
+    padding-left: 20%;
     display: none;
+    margin-top: 10%;
+    color: rgb(255, 0, 0);
+    font-size: 20px;
 }
 
 
@@ -154,15 +266,19 @@ footer {
 }
 .card-productos {
     height: 290px;
-    width: 205px;
-    border: 3px solid grey;
+    width: 200px;
     text-align: center;
-    border-radius: 7px;
     margin-bottom: 10%;
+    background-color: white;
+    border-radius: 7px;
 }
+
+.card-productos-oscuro {
+    background-color: brown;
+}
+
 .card-productos img {
-    height: 200px;
-    border: 1px solid grey;   
+    height: 200px; 
     text-align: center;
     border-radius: 7px;
 
