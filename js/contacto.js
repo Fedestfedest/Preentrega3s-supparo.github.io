@@ -2,14 +2,19 @@
 const botonPerfil = document.querySelector("#botonPerfil")
 const botonInicioSesion = document.querySelector("#botonInicioSesion")
 const botonCerrarSesion = document.querySelector("#botonCerrarSesion")
-
 const botonModos = document.querySelector("#claro-oscuro")
 const body = document.querySelector(".modo-claro")
-const listaProductoOscuro = document.querySelector(".card-productos")
+
+
+
+const subirAlLs = (clave, valor ) => {
+    localStorage.setItem(clave, JSON.stringify(valor))
+}
 
 const obtenerDelLs = (clave) => {
     return JSON.parse (localStorage.getItem(clave))
 }
+
 
 
 
@@ -35,12 +40,27 @@ function validarLogin (clave) {
     botonInicioSesion.style.display = "flex"
  }
 
- botonModos.onclick = () => {
+ botonModos.onclick = (e) => {
+    e.preventDefault()
     body.classList.toggle("modo-oscuro")
+    subirAlLs("modoOscuro", true)
  }
+
+
+
+
+ function cambiarModoOscuro (clave) {
+    if (clave == true) {
+        body.classList.toggle("modo-oscuro")
+    } else {
+    
+    }
+ }
+
+
+
  
  
  validarLogin(obtenerDelLs("login"))
+ cambiarModoOscuro(obtenerDelLs("modoOscuro"))
 
-
- 
