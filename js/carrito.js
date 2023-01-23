@@ -1,11 +1,12 @@
-let infoDelLS = JSON.parse(localStorage.getItem("carrito"))
-const botonBorrarCarrito = document.querySelector("#botonBorrarCarrito")
+
+const infoDelLS = JSON.parse(localStorage.getItem("carrito"))
 const botonPerfil = document.querySelector("#botonPerfil")
 const botonInicioSesion = document.querySelector("#botonInicioSesion")
-const botonCerrarSesion = document.querySelector("#botonCerrarSesion")
+const botonCerrarSesion = document.querySelector("#contenedorBotonCerrarSesion")
 const botonModos = document.querySelector("#claro-oscuro")
 const body = document.querySelector(".modo-claro")
-const listaProductoOscuro = document.querySelector(".card-productos")
+const carritoContenedor = document.querySelector("#carritoContenedor")
+
 
 const subirAlLs = (clave, valor ) => {
     localStorage.setItem(clave, JSON.stringify(valor))
@@ -16,9 +17,7 @@ const obtenerDelLs = (clave) => {
 }
 
 function validarLogin (clave) {
-    if (clave !== true) {
-    } else {
-    
+    if (clave) {
         botonPerfil.style.display = "flex"
         botonInicioSesion.style.display = "none"
         botonCerrarSesion.style.display = "flex"
@@ -37,21 +36,20 @@ function validarLogin (clave) {
  }
 
  botonModos.onclick = (e) => {
-    e.preventDefault()
     body.classList.toggle("modo-oscuro")
-    subirAlLs("modoOscuro", true)
+    subirAlLs("modoOscuro", body.classList.contains("modo-oscuro"))
+ }
+
+ 
+
+ function cambiarModoOscuro (clave) {
+    if (clave && !body.classList.contains("modo-oscuro")) body.classList.add("modo-oscuro")
+    else body.classList.remove("modo-oscuro")
  }
 
 
- function mantenerModoOscuro (clave) {
-    if (clave == true) {
-        body.classList.toggle("modo-oscuro")
-    } else {
-    
-    }
- }
 
-function productosAgregados (array) {
+ function productosAgregados (array) {
     array.forEach((producto) => {
         const divProductosAgregados = document.createElement("div");
         divProductosAgregados.classList.add("card", "col-xl-3", "col-md-6", "col-sm-12");
@@ -81,11 +79,10 @@ function productosAgregados (array) {
                 const filtrarProducto = array.filter((elemento, i) => {
                 return elemento.id != Number(id) 
             })
-              infoDelLS = filtrarProducto
-              localStorage.setItem("carrito", JSON.stringify(infoDelLS))
-              console.log(infoDelLS)
-              productosAgregados(infoDelLS)
-              eliminarDelCarrito (infoDelLS)
+        
+            localStorage.setItem("carrito", JSON.stringify(infoDelLS))
+           
+            
         
         }
 
@@ -94,13 +91,15 @@ function productosAgregados (array) {
 
     botonBorrarCarrito.onclick = () => {
         localStorage.removeItem("carrito")
-        productosAgregados(infoDelLS)
+        carritoContenedor.style.display = "none"
+
+   
 
     }
 
 
      
-     validarLogin(obtenerDelLs("login"))
-    mantenerModoOscuro(obtenerDelLs("modoOscuro"))
+    validarLogin(obtenerDelLs("login"))
     productosAgregados(infoDelLS)
     eliminarDelCarrito(infoDelLS)
+    cambiarModoOscuro(obtenerDelLs("modoOscuro"))

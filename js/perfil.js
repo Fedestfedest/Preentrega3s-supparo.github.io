@@ -41,18 +41,15 @@ function validarLogin (clave) {
  }
 
  botonModos.onclick = (e) => {
-    e.preventDefault()
     body.classList.toggle("modo-oscuro")
-    subirAlLs("modoOscuro", true)
+    subirAlLs("modoOscuro", body.classList.contains("modo-oscuro"))
  }
 
+ 
 
- function mantenerModoOscuro (clave) {
-    if (clave == true) {
-        body.classList.toggle("modo-oscuro")
-    } else {
-    
-    }
+ function cambiarModoOscuro (clave) {
+    if (clave && !body.classList.contains("modo-oscuro")) body.classList.add("modo-oscuro")
+    else body.classList.remove("modo-oscuro")
  }
 
 
@@ -60,4 +57,4 @@ function validarLogin (clave) {
  
  
  validarLogin(obtenerDelLs("login"))
- mantenerModoOscuro(obtenerDelLs("modoOscuro"))
+cambiarModoOscuro(obtenerDelLs("modoOscuro"))

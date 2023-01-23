@@ -25,9 +25,9 @@
                         <li><a href="../html/productos.html">Productos</a></li>
                         <li><a href="../html/carrito.html">Carrito</a></li>
                         <li id="botonInicioSesion"><a href="../html/inicio.html">Inciar Sesión</a></li>
-                        <li ><a href="../html/perfil.html"><button id="botonPerfil">Perfil</button></a></li>
+                        <li id="botonPerfil"><a href="../html/perfil.html"><button>Perfil</button></a></li>
                         <li><a href="../html/contacto.html">Contacto</a></li>
-                        <li><button id="botonCerrarSesion">Cerrar sesión</button></li>
+                        <li id="contenedorBotonCerrarSesion"><button id="botonCerrarSesion">Cerrar sesión</button></li>
                     </ul>
                 </nav> 
 
@@ -42,8 +42,45 @@
     </header>
 
     <main>
-<br><br><br><br><br><br><br>
+
+        <div class="container">
+            <form>
+              <i class="fas fa-paper-plane"></i>
+        
+              <div class="input-group">
+                <label>Full Name</label>
+                <input type="text" placeholder="Enter your name" id="contact-name" onkeyup="validarNombre()">
+                <span id="name-error"></span>
+              </div>
+        
+              <div class="input-group">
+                <label>Phone No.</label>
+                <input type="tel" placeholder="123 456 7890" id="contact-phone" onkeyup="validarTelefono()">
+                <span id="phone-error"></span>
+              </div>
+        
+              <div class="input-group">
+                <label>Email Id</label>
+                <input type="email" placeholder="Enter Email" id="contact-email" onkeyup="validarEmail()">
+                <span id="email-error"></span>
+              </div>   
+        
+              <div class="input-group">
+                <label>Your Message</label>
+                <textarea rows="5" placeholder="Enter your message"></textarea>
+                <span id="message-error"></span>
+              </div>
+        
+            <button>Submit</button>
+         
+           
+          </form>
+
+
+
     </main>
+
+
 
     <footer id="footer">
 
@@ -74,7 +111,7 @@
 
 
     <script src="../js/contacto.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
 </body>
 </body>
 </html>

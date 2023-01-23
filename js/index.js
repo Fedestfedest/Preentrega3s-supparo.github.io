@@ -1,9 +1,17 @@
 
+import productos from './listaProductos.js'
+
+const infoDelLS = JSON.parse(localStorage.getItem("productosEnOferta"))
 const botonPerfil = document.querySelector("#botonPerfil")
 const botonInicioSesion = document.querySelector("#botonInicioSesion")
 const botonCerrarSesion = document.querySelector("#botonCerrarSesion")
 const botonModos = document.querySelector("#claro-oscuro")
 const body = document.querySelector(".modo-claro")
+const cardProductos = document.querySelector(".card-productos")
+
+let carrito = []
+const productosElegidos = JSON.parse(localStorage.getItem("carrito"))
+carrito = productosElegidos || []
 
 
 
@@ -18,16 +26,17 @@ const obtenerDelLs = (clave) => {
 
 
 
-
-function validarLogin (clave) {
-    if (clave !== true) {
-    } else {
-    
+function validarLogin (logueado) {
+    if (logueado){
         botonPerfil.style.display = "flex"
         botonInicioSesion.style.display = "none"
         botonCerrarSesion.style.display = "flex"
+    } else {
+        botonInicioSesion.style.display = "flex"
+        botonPerfil.style.display = "none"
+        botonCerrarSesion.style.display = "none"
     }
- }
+}
 
 
 
@@ -43,45 +52,63 @@ function validarLogin (clave) {
  
  botonModos.onclick = (e) => {
     body.classList.toggle("modo-oscuro")
-    subirAlLs("modoOscuro", true)
+    subirAlLs("modoOscuro", body.classList.contains("modo-oscuro"))
  }
 
  
 
  function cambiarModoOscuro (clave) {
-    if (clave == true) {
-        body.classList.toggle("modo-oscuro")
-    } else {
+    if (clave && !body.classList.contains("modo-oscuro")) body.classList.add("modo-oscuro")
+    else body.classList.remove("modo-oscuro")
+ }
+
+ function agregarProductos(array) {
+    array.forEach((producto) => {
+        const divProducto = document.createElement("div");
+        divProducto.classList.add("card", "col-xl-3", "col-md-6", "col-sm-12");
+        divProducto.innerHTML = `
+                            <div class= "card-productos">
+                                    <img id = "card-img"src="${producto.img}"> 
+                                <div class="card-body">
+                                    <h3 class="card-title"> ${producto.nombre} </h3>
+                                    <p class="card-precio"> ${producto.precio} <p>
+                                    <p class="card-text"> ${producto.categoria} </p>
+                                    <button id="boton-${producto.id}" class="boton-card">
+                                        Añadir al carrito
+                                    </button>
+                                </div>
+                            </div>`;
+        productosOferta.appendChild(divProducto);
+       
+    })};
+
+
+    function aniadirAlCarrito (array) {
+        const botonAniadir = document.querySelectorAll(".boton-card")
+        botonAniadir.forEach( boton => {
+            boton.onclick = () => {
+                const id = boton.id.slice(6)
+                const filtrarProducto = array.find((productos) => {
+                    return productos.id === Number(id)
+                })
+              
+              carrito.push(filtrarProducto)
+              localStorage.setItem("carrito", JSON.stringify(carrito))
+              console.log(carrito)
+        } 
     
+    })
     }
- }
-
- function cambiarModoClaro (clave) {
-    if (clave == true) {
-        botonModos.onclick = (e) => {
-        body.classList.toggle("modo-claro")
-        
-        
-        }
-    }
-}
-
- function cambiarModoClaroLS (clave) {
-    if(clave == true) {
-        botonModos.onclick = (e) => {
-         localStorage.removeItem("modoOscuro")  
-        }
-    } else {
-        
-    }
- }
 
 
- 
+
+
+ obtenerDelLs("productos")
  validarLogin(obtenerDelLs("login"))
  cambiarModoOscuro(obtenerDelLs("modoOscuro"))
- cambiarModoClaro(obtenerDelLs("modoOscuro"))
- cambiarModoClaroLS (obtenerDelLs("modoOscuro"))
+ agregarProductos(infoDelLS)
+ aniadirAlCarrito(productos)
+
 
 
  

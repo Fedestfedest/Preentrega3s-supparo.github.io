@@ -25,9 +25,9 @@
                         <li><a href="../html/productos.html">Productos</a></li>
                         <li><a href="../html/carrito.html">Carrito</a></li>
                         <li id="botonInicioSesion"><a href="../html/inicio.html">Iniciar Sesión</a></li>
-                        <li ><a href="./perfil.html"><button id="botonPerfil">Perfil</button></a></li>
+                        <li id="botonPerfil"><a href="./perfil.html"><button>Perfil</button></a></li>
                         <li><a href="../html/contacto.html">Contacto</a></li>
-                        <li id="botonCerrarSesion">Cerrar sesión</li>
+                        <li id="contenedorBotonCerrarSesion"><button id="botonCerrarSesion" >Cerrar sesión</button></li>
                     </ul>
                 </nav> 
 
@@ -39,6 +39,15 @@
     </header>
     
     <main>
+
+        <div class="ordenOpciones">
+
+            <button type="button" class="btn btn-default" id="opcionAZ">Normal</button>
+            <button type="button" class="btn btn-default" id="opcionZA">Normal</button>
+            <button type="button" class="btn btn-default" id="opcionMenorAMayor">Normal</button>
+
+        </div>
+
         <div id="listaProductos"></div>
 
 
@@ -77,6 +86,6 @@
 </footer>
 
 
-    <script src="../js/productos.js"></script>
+    <script type="module" src="../js/productos.js"></script>
 </body>
 </html>

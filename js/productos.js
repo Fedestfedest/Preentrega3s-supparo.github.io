@@ -1,64 +1,4 @@
-const productos = [{
-    id: 1,
-    img: "../img/Consola.jpeg",
-    nombre: "Consola Pro Max",
-    precio: "USD 60",
-    categoria: "Gaming, Informatica",
-    oferta: true,
-},
-{
-    id: 2,
-    img: "../img/Consola-de-videojuegos-Retro-de-4-3-pulgadas-consola-de-videojuegos-port-til-con-Joystick-Dual.jpg_Q90.jpg_.webp",
-    nombre: "Control para celulares",
-    precio: "USD 15",
-    categoria: "Gaming, Informatica",
-    oferta: true
-},
-{
-    id: 3,
-    img: "../img/Joystick_inalambrico_Generico_para_Xbox_360_y_PC_Blanco_tab_1.png",
-    nombre: "Control inalambrico",
-    precio: "USD 30",
-    categoria: "Gaming, Informatica",
-    oferta: true
-},
-{
-    id: 4,
-    img: "../img/Joystick_inalambrico_Generico_para_Xbox_360_y_PC_Blanco_tab_1.png",
-    nombre: "Control inalambrico",
-    precio: "USD 30",
-    categoria: "Gaming, Informatica",
-},
-{
-    id: 5,
-    img: "../img/Joystick_inalambrico_Generico_para_Xbox_360_y_PC_Blanco_tab_1.png",
-    nombre: "Control inalambrico",
-    precio: "USD 30",
-    categoria: "Gaming, Informatica",
-},
-{
-    id: 6,
-    img: "../img/Joystick_inalambrico_Generico_para_Xbox_360_y_PC_Blanco_tab_1.png",
-    nombre: "Control inalambrico",
-    precio: "USD 30",
-    categoria: "Gaming, Informatica",
-},
-{
-    id: 7,
-    img: "../img/Joystick_inalambrico_Generico_para_Xbox_360_y_PC_Blanco_tab_1.png",
-    nombre: "Control inalambrico",
-    precio: "USD 30",
-    categoria: "Gaming, Informatica",
-},
-{
-    id: 8,
-    img: "../img/Joystick_inalambrico_Generico_para_Xbox_360_y_PC_Blanco_tab_1.png",
-    nombre: "Control inalambrico",
-    precio: "USD 30",
-    categoria: "Gaming, Informatica",
-},
-
-]
+import productos from './listaProductos.js'
 
 
 let carrito = []
@@ -76,7 +16,7 @@ const obtenerDelLs = (clave) => {
     return JSON.parse (localStorage.getItem(clave))
 }
 const listaProductoOscuro = document.querySelector(".card-productos")
-
+const botonOrdenPorNombre = document.querySelector("#opcionAZ")
 
 
 function agregarProductos(array) {
@@ -117,31 +57,43 @@ function aniadirAlCarrito (array) {
 }
 
 botonModos.onclick = (e) => {
-    e.preventDefault()
     body.classList.toggle("modo-oscuro")
-    listaProductoOscuro.classList.toggle(".card-productosOscuro")
-    subirAlLs("modoOscuro", true)
+    subirAlLs("modoOscuro", body.classList.contains("modo-oscuro"))
+ }
+
+ 
+
+ function cambiarModoOscuro (clave) {
+    if (clave && !body.classList.contains("modo-oscuro")) body.classList.add("modo-oscuro")
+    else body.classList.remove("modo-oscuro")
  }
 
 
- function mantenerModoOscuro (clave) {
-    if (clave == true) {
-        body.classList.toggle("modo-oscuro")
-        listaProductoOscuro.classList.toggle(".card-productosOscuro")
-    } else {
-    
-    }
- }
+  botonOrdenPorNombre.onclick = (e) => {
+        [...productos].sort(( a, b ) => {
+            if(a < b) {
+                return -1
+            } else if (a > b) {
+                return 1
+            } else {
+                return 0 
+            }
+        })}
+     
+
+
 
 
 
 
     agregarProductos(productos)
     aniadirAlCarrito(productos)
-    mantenerModoOscuro(obtenerDelLs("modoOscuro"))
+    obtenerDelLs("productos")
+    cambiarModoOscuro(obtenerDelLs("modoOscuro"))
 
 
 
     
+
 
 
